@@ -92,6 +92,11 @@ h1 {
 
 
 .site-nav .link {
+  /* или transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); или*/
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -150,6 +155,7 @@ h1 {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.1;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-nav .link:hover,
@@ -260,6 +266,10 @@ h1 {
 }
 
 .button {
+  transition-property: all;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  
   color: var(--white-color);
   background-color: var(--accent-color);
   font-family: Roboto;
@@ -418,6 +428,10 @@ h1 {
 }
 
 .social-list-link {
+  transition-property: all;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -427,13 +441,14 @@ h1 {
   color: var(--soc-color);
 }
 
-.soc-icon-team {
-  fill: currentColor;
-}
-
+.social-list-link:focus,
 .social-list-link:hover {
   color: var(--white-color);
   background-color: var(--accent-color);
+}
+
+.soc-icon-team {
+  fill: currentColor;
 }
 
 /*---------------------------------------------------*/
@@ -443,6 +458,10 @@ h1 {
 }
 
 .customers-link {
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   border: 1px solid var(--soc-color);
   border-radius: 4px;
   width: 170px;
@@ -538,6 +557,10 @@ address a{
 }
 
 .footer-social-list-link {
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   display: inline-flex;
   justify-content: center;
   background-color: var(--footer-background-soc);
@@ -595,6 +618,9 @@ input {
   
 }
 
+.footer-input {
+  padding: 18px 12px;
+}
 
 .footer-send {
   margin-left: 10px;
@@ -665,6 +691,10 @@ input {
 }
 
 .btn {
+  transition-property: all;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   background-color: var(--page-background);
   color: #212121;
   font-family: Roboto;
@@ -677,7 +707,6 @@ input {
   text-align: center;
   letter-spacing: 0.03rem;
 
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12); /* есть еще text-shadow */
   border-radius: 4px;
   border: 1px solid transparent;
 }
@@ -686,6 +715,8 @@ input {
 .btn:hover {
   color: var(--white-color);
   background-color: var(--accent-color);
+  /* есть еще text-shadow */
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 3px 1px rgba(0, 0, 0, 0.1);
 }
 
 .filtr {
@@ -706,12 +737,17 @@ main {
 
 
 .catalog-item {
-
   width: calc((100% - 60px) / 3);
   background-color: #ffffff;
-  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.12);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
+/*тень вокруг появляется при наведении*/
+.catalog-item:hover,
+.catalog-item:focus {
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.12);
+}
 .catalog-item:not(:nth-child(3n)) {
   margin-right: 30px;
 } 
@@ -731,10 +767,14 @@ main {
   border-right: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
   padding: 20px 24px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 
 .catalog-title {
+  margin: 0;
+  padding-bottom: 4px;
   color: var(--primary-text-color);
   font-family: Roboto;
   font-style: normal;
@@ -746,6 +786,7 @@ main {
 
 
 .catalog-type {
+  margin: 0;
   color: var(--title-text-color);
   font-family: Roboto;
   font-weight: normal;
@@ -768,7 +809,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  transform: translateY(100%); /*карточка с текстом спрятана внизу на 100% высоты*/
+  transform: translateY(101%); /*карточка с текстом спрятана внизу на 100% высоты*/
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); /* анимация, карточка выезжает вверх*/
 
   display: flex;
@@ -791,6 +832,15 @@ main {
   font-style: normal;
 }
 
-.catalog-image:hover .text {
+/*текст выезжает только при наведении на картинку*/
+/*.catalog-image:hover .text {
+  transform: translateY(0);
+}*/
+
+/*текст выезжает при наведении на любой участок li/a */
+.catalog-link:hover .text,
+.catalog-link:focus .text,
+.catalog-item:hover .text,
+.catalog-item:focus .text {
   transform: translateY(0);
 }
