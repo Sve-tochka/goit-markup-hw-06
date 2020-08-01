@@ -48,9 +48,7 @@
     <!--Hero-->
     <section class="hero">
       <h2 class="hero-title">эффективные решения <br> для вашего бизнеса</h2>      
-      <a href="#" class="button">
-        <span> </span>
-        Заказать услугу</a>
+      <button class="button" data-modal-open>Заказать услугу</button>
     </section>
 
     <!--Feature-->
@@ -521,6 +519,31 @@
         <span class="goit">2020 | Developed by GoIT Students</span>
       </div>
     </footer>
-    <script src="./js/modal.js"></script>
+
+    <!--Модальное окно-->
+    <div class="form js-speaker-form">
+      <form class="form-list">
+        <h3 class="form-title">Оставьте свои данные, мы вам перезвоним</h3>
+        <div class="form-field">
+          <label for="name">Имя</label>
+          <input type="text" name="name" id="name" placeholder="Иван Иванов" autofocus />
+        </div>
+        <div class="form-field">
+          <label for="tel">Телефон</label>
+          <input type="tel" name="tel" id="tel" placeholder="+380**-000-00-00" />
+        </div>
+        <div class="form-field">
+          <label for="mail">Почта</label>
+          <input type="email" name="mail" id="mail" placeholder="my@mail.com" />
+        </div>
+        <div class="form-field">        
+          <input type="checkbox" name="policy" id="policy" placeholder="my@mail.com" />
+          <label for="policy">Соглашаюсь с рассылкой и принимаю <a class="agreement" href="./">Условия договора</a></label>
+        </div>
+      </form>
+    </div>
+
+    <!-- отключить мод.окно
+    <script src="./js/modal.js" ></script> -->
   </body>
 </html>

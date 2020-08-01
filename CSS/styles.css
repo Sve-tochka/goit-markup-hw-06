@@ -581,23 +581,6 @@ address a{
   height: 20px;
 }
 
-input {
-  background-color: var(--footer-background);
-  color: var(--footer-adress);
-  font-family: Roboto;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 1.9;
-  
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  box-sizing: border-box;
-
-  width: 358px;
-  height: 50px;
-}
-
 .btn-footer {
   display: inline-flex;
   padding: 10px 28px;
@@ -619,6 +602,20 @@ input {
 }
 
 .footer-input {
+  background-color: var(--footer-background);
+  color: var(--footer-adress);
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.9;
+  
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  width: 358px;
+  height: 50px;
   padding: 18px 12px;
 }
 
@@ -845,3 +842,37 @@ main {
   transform: translateY(0);
 }
 
+
+/*--------Модальное окно----------*/
+.form {
+  width: 528px;
+  outline: 1px solid tomato;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+  
+}
+
+.form-field {
+  /*outline: 1px solid blue;*/
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01rem;
+
+  color: #757575;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.form-field label {
+margin-bottom: 5px;
+}
