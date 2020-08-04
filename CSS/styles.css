@@ -13,6 +13,7 @@
   --portfolio-text-background: rgba(33, 150, 243, 0.9);
   --hero-development-background: rgba(47, 48, 58, 0.8);
   --soc-color: #AFB1B8;
+  --timing-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -861,8 +862,6 @@ main {
   pointer-events: none;
 }
 
-.form-list {}
-
 .form-title {
   margin: 0;
   font-size: 20px;
@@ -892,7 +891,6 @@ main {
 
 .form-field input {
   margin: 0;
-  padding: 11px 16px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   box-sizing: border-box;
@@ -907,22 +905,37 @@ main {
   position: absolute;
   top: 50%;
   left: 42px;
+
+  transform: translateY(-50%);
+  transition: transform 250ms linear;
+}
+
+.form-comment-label {
+  position: absolute;
+  top: 16px;
+  left: 21px;
+
   transform: translateY(-50%);
   transition: transform 250ms linear;
 }
 
 .form-input {
-  padding-top: 11px;
-  padding-bottom: 11px;
-  padding-left: 42px;
+  width: 100%;
+  margin: 0;
+  padding: 11px 42px;
+  font: inherit;
 }
 
-.form-input:focus + .form-label {
+.form-input:focus + .form-label, /*при вводе текста в графу поднимает заголовок над графой*/
+ .form-input:not(:placeholder-shown) + .form-label { /*делает так чтобы при написании текста не опускался заголовок графы*/
+  font-size: 12px;
   color: var(--accent-color);
-  transform: translateY(-50%);
+  transform: translate(-25px, -35px);
 }
 
-.comment {
+
+
+.form-comment {
   resize: none;
   padding: 12px 16px;
 
@@ -930,3 +943,61 @@ main {
   box-sizing: border-box;
   border-radius: 4px;
 }
+
+.form-comment:focus + .form-comment-label, 
+.form-comment:not(:placeholder-shown) + .form-comment-label {
+  font-size: 12px;
+  color: var(--accent-color);
+  transform: translateY(-35px);
+}
+
+.form-input:focus,
+.form-comment:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+.icon {
+  /*outline: 1px solid blue;*/
+  position: absolute;
+  top: 50%;
+  left: 16px;
+
+  fill: var(--primary-text-color);
+  transform: translateY(-50%);
+  transition: fill var(--timing-function);
+}
+
+.form-input:focus ~ .icon {
+  fill: var(--accent-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* рамочка вокруг графы шириной 20px
+.form-field:focus-within {
+  padding: 20px;
+  background-color: blueviolet;
+}  */
+
+/* добавляет фон svg при активации графы 
+.form-field:focus-within > .icon {
+  background-color: blue;
+} */
+
+/*
+.form-field:focus-within > .form-label {
+  transform: translateY(-50px);
+}
+
+.form-input:not(:placeholder-shown) + .form-label {
+  transform: translateY(-50px);
+} */
