@@ -267,6 +267,7 @@ h1 {
 }
 
 .button {
+  cursor: pointer;
   transition-property: all;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -846,13 +847,73 @@ main {
 
 /*--------Модальное окно----------*/
 
-.form {
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  transition: opacity var(--timing-function), transform var(--timing-function);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;  
+  transform: scale(1.4);
+  pointer-events: none;
+}
+
+.modal {
+  color: var(--title-text-color);
+
+  position: absolute;
   width: 528px;
-  outline: 1px solid tomato;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: trasform var(--timing-function);
+}
+
+.close-modal {
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition: fill var(--timing-function), transform var(--timing-function);
+  outline: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 1%;
+  right: 1%;
+
+  width: 30px;
+  height: 30px;
+  background-color: var(--white-color);
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 50%;
+}
+
+.close-modal:hover .icon-close {
+  fill: var(--accent-color);
+  cursor: pointer;
+  transform: scale(1.25) rotate(10deg);
+}
+
+.form {
+  background-color: var(--white-color);
+  width: 528px;
+  /*outline: 1px solid tomato;*/
   margin-left: auto;
   margin-right: auto;
   padding: 40px;
   
+  background: var(--white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;  
 }
 
 .form .js-speaker-form {
@@ -989,6 +1050,7 @@ main {
 }
 
 .field {
+  padding-bottom: 30px;
   display: flex;
   align-items: center;
   /*outline: 1px solid black;*/
@@ -1036,6 +1098,10 @@ main {
 }
 
 .form-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
   transform: scale(1, 1);
   transition: background-color var(--timing-function), transform var(--timing-function);
 
@@ -1056,15 +1122,14 @@ main {
   color: var(--white-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  border: 2px solid transparent;
 }
 
 .form-btn:hover,
 .form-btn:focus {
-  background-color: #188CE8;;
+  background-color: #188CE8;
   transform: scale(1.05, 1.05);
 }
-
-
 
 
 
