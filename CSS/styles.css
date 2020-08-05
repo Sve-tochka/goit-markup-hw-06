@@ -1016,7 +1016,7 @@ main {
   outline: none;
 }
 
-.icon {
+.icon-label {
   /*outline: 1px solid blue;*/
   position: absolute;
   top: 50%;
@@ -1027,7 +1027,7 @@ main {
   transition: fill var(--timing-function);
 }
 
-.form-input:focus ~ .icon {
+.form-input:focus ~ .icon-label {
   fill: var(--accent-color);
 }
 
