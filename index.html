@@ -549,12 +549,21 @@
           <textarea class="form-comment" name="comment" id="comment" rows="8" placeholder=" "></textarea>
           <label class="form-comment-label" for="comment">Коментарий</label>
         </div>
+        <!--
         <div class="form-field">        
           <input class="form-input" type="checkbox" name="policy" id="policy" placeholder="my@mail.com" />
           <label class="form-label" for="policy">Соглашаюсь с рассылкой и принимаю <a class="agreement" href="./">Условия договора</a></label>
-        </div>
+        </div> -->
 
-        <button type="submit">Отправить</button>
+        <label class="field">
+          <input class="checkbox" type="checkbox" name="topic" />
+          <span class="checkbox-icon"></span>
+            <span class="label"> Соглашаюсь с рассылкой и принимаю
+            <a class="agreement" href="./">Условия договора</a>
+          </span>
+        </label>
+
+        <button class="form-btn" type="submit">Отправить</button>
       </form>
     </div>
 
