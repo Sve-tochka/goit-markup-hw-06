@@ -1074,9 +1074,9 @@ main {
   background-origin: border-box;
 }
 
-.checkbox:checked ~ .label {
+/*.checkbox:checked ~ .label {
   transform: translateX(5px);
-}
+}*/
 
 .label {
   transition: transform var(--timing-function);
